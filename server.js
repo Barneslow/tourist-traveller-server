@@ -10,9 +10,11 @@ dotenv.config({ path: "./.env" });
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://barneslow-travels.netlify.app/",
+    origin: "https://barneslow-travels.netlify.app",
   })
 );
+
+app.options("*", cors());
 
 app.post("/", async (req, res) => {
   const { query } = req.body;
