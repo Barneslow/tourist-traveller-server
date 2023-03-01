@@ -7,10 +7,12 @@ const dotenv = require("dotenv");
 const { randomThreeFromArray } = require("./math");
 dotenv.config({ path: "./.env" });
 
-console.log(process.env.GOOGLE_PLACES_API_KEY);
-
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://barneslow-travels.netlify.app/",
+  })
+);
 
 app.post("/", async (req, res) => {
   const { query } = req.body;
